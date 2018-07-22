@@ -40,12 +40,12 @@ def encoder(features, latent_dims):
     norm3 = tf.layers.batch_normalization(conv6)
 
     conv7 = conv2d(norm3, 64, 1)
-    conv8 = conv2d(conv6, 64, 1)
+    conv8 = conv2d(conv7, 64, 1)
     norm4 = tf.layers.batch_normalization(conv8)
 
     conv9 = conv2d(norm4, 128, 1)
     conv10 = conv2d(conv9, 128, 1)
-    norm5 = tf.layers.batch_normalization(norm4)
+    norm5 = tf.layers.batch_normalization(conv10)
 
     flatten = tf.contrib.layers.flatten(norm5)
 
@@ -62,7 +62,7 @@ def decoder(dist_out, output_channels, reshape_dim):
     reshape = tf.reshape(dense2, [-1] + reshape_dim)
 
     deconv1 = deconv2d(reshape, 128, 1, 'same')
-    deconv2 = deconv2d(deconv1, 128, 1, 'same')
+    deconv2 = deconv2d(deconv1, 128, 1)
     norm1 = tf.layers.batch_normalization(deconv2)
 
     deconv3 = deconv2d(norm1, 64, 1)
@@ -70,15 +70,16 @@ def decoder(dist_out, output_channels, reshape_dim):
     norm2 = tf.layers.batch_normalization(deconv4)
 
     deconv5 = deconv2d(norm2, 32, 1)
-    norm3 = tf.layers.batch_normalization(deconv5)
+    deconv6 = deconv2d(deconv5, 32, 1)
+    norm3 = tf.layers.batch_normalization(deconv6)
 
-    deconv6 = tf.layers.conv2d_transpose(inputs=norm3,
+    deconv7 = tf.layers.conv2d_transpose(inputs=norm3,
                                          filters=output_channels,
-                                         kernel_size=1,
+                                         kernel_size=3,
                                          strides=1,
                                          padding='valid',
                                          activation=tf.nn.sigmoid)
-    return deconv6
+    return deconv7
 
 def model_func(features, labels, mode, params):
     NAN_ELIMINATOR = 1e-10
