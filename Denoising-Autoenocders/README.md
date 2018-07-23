@@ -3,7 +3,7 @@ Autoencoders can be used to remove noise (denoise) from an image. But how? Train
 
 | ![Denoising Autoencoder](./images/dae.png) |
 |:------------------------------------------:|
-| * Denoising Autoencoder Results |
+| * Denoising Autoencoder Results* |
 
 ## Dataset
 The DAE is trained on [Cifar-10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset for about 30 epochs.
