@@ -20,12 +20,13 @@ for i in preds:
 
 imgs = np.asarray(imgs)
 
-indices = np.random.randint(pred_labels.shape[0], size=10)
+indices = np.random.randint(pred_labels.shape[0], size=100)
 
 plt.figure(figsize=(10, 10))
 for i, index in enumerate(indices):
-    plt.subplot(5, 2, i+1)
-    plt.imshow(imgs[index].reshape(28, 28), cmap='binary')
+    plt.subplot(10, 10, i+1)
+    plt.imshow(imgs[index].reshape(28, 28), cmap='gray')
     plt.axis('off')
-    plt.title('Ground Truth:' + str(pred_labels[index]))
+plt.tight_layout()
+plt.subplots_adjust(wspace=0, hspace=0)
 plt.show()
