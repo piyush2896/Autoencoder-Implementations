@@ -11,6 +11,7 @@ This repository contains my implementations for autoencoders. Currently there ar
 * [Vanilla Autoencoder](/Simple-Autoecnoders)
 * [Variational Autoecnoder](/VAE)
 * [Denosing Autoecnoder](/Denoising-Autoenocders)
+* [Convolutional Autoencoders with Symmetric Skip Connections](/AE-With-SSCs)
 
 ## Dependencies
 * TensorFlow
