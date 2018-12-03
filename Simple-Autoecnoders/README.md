@@ -10,6 +10,7 @@ Dataset used is MNIST
 
 
 ## Output
+
 | ![MNIST Generated](./images/generated_imgs.png)|
 |:----------------------------------------------:|
 | *Decoder Output* |
