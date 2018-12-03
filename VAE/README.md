@@ -24,6 +24,7 @@ and then go to ``<your-public-ip-adress>:6000`` (if training on an instance) or 
 
 
 ### Final Output
+
 | ![VAE output](./images/generated_imgs.png) |
 |:------------------------------------------:|
 | *VAE outputs* |
